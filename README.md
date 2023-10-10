@@ -23,3 +23,8 @@ A web-based inventory management system developed during a practicum, utilizing 
 1. Clone the repository to your local machine.
    ```bash
    git clone https://github.com/your-username/practicum-digital-inventory.git
+
+
+
+
+Edwin Díaz Negrón - Y00477250
