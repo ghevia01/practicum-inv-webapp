@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gean Hevia" />
+    <meta name="description" content="Inter Bayamon Device Inventory System" />
+
+    <!-- Favicon (will be set later on)-->
+    <link rel="icon" href="" type="image/x-icon" />
+
+    <title>Inter Bayamon Device Inventory System</title>
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" type="text/css" href="../css/main-styles.css" />
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="menu-icon-container">
+        <i class="material-icons menu-icon">menu</i>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main-content">
+      <!-- Branding Section -->
+      <section class="branding-section">
+        <img
+          class="branding-image"
+          src="../img/inter-logo.png"
+          alt="Brand Logo"
+        />
+        <h1 class="branding-title">Device Inventory System</h1>
+      </section>
+
+      <!-- Section Divider -->
+      <hr class="section-divider" />
+
+      <!-- Action Buttons Section -->
+      <section class="action-buttons-container">
+        <!-- QR Scanner Button -->
+        <button id="qrScanButton" class="action-button">
+          <div class="action-button-icon-container">
+            <i class="material-icons action-button-icon"> qr_code_scanner </i>
+          </div>
+          <span class="action-button-text">Scan QR Code</span>
+        </button>
+
+        <!-- Manage Inventory Button -->
+        <button id="manageInventoryButton" class="action-button">
+          <div class="action-button-icon-container">
+            <i class="material-icons-outlined action-button-icon">
+              inventory
+            </i>
+          </div>
+          <span class="action-button-text">Manage Inventory</span>
+        </button>
+
+        <!-- Manage Users Button -->
+        <button id="manageUsersButton" class="action-button">
+          <div class="action-button-icon-container">
+            <i class="material-icons-outlined action-button-icon">
+              manage_accounts
+            </i>
+          </div>
+          <span class="action-button-text">Manage Users</span>
+        </button>
+
+        <!-- Reports Button -->
+        <button id="generateReportsButton" class="action-button">
+          <div class="action-button-icon-container">
+            <i class="material-icons-outlined action-button-icon">
+              description
+            </i>
+          </div>
+          <span class="action-button-text">Reports</span>
+        </button>
+      </section>
+    </main>
+  </body>
+</html>
