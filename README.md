@@ -22,9 +22,9 @@ A web-based inventory management system developed during a practicum, utilizing 
 
 1. Clone the repository to your local machine.
    ```bash
-   git clone https://github.com/your-username/practicum-digital-inventory.git
+   git clone https://github.com/ghevia01/practicum-inv-webapp.git
 
 
-
+Gean C Hevia Cruz
 Gabriel R Rivera Gomez Y00578238
 Edwin Díaz Negrón - Y00477250
