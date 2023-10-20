@@ -25,6 +25,6 @@ A web-based inventory management system developed during a practicum, utilizing 
    git clone https://github.com/ghevia01/practicum-inv-webapp.git
 
 
-Gean C Hevia Cruz
+Gean C Hevia Cruz Y00427292
 Gabriel R Rivera Gomez Y00578238
 Edwin Díaz Negrón - Y00477250
