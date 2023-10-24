@@ -1,4 +1,4 @@
-// Go back to the previous page
+// Send the user to the main page
 function goBack() {
-    window.history.back();
+  window.location.href = "main.html";
 }
