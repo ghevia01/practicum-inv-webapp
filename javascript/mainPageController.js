@@ -1,7 +1,9 @@
 (function () {
-    const qrScannerBtn = document.getElementById('qrScannerButton');
+    // Get the button that opens the modal
+    const qrScannerPageBtn = document.getElementById('qrScannerPageButton');
     
-    qrScannerBtn.addEventListener('click', function () {
+    // Send the user to the QR scanner page
+    qrScannerPageBtn.addEventListener('click', function () {
         window.location.href = 'qr-scanner.html';
     });
 })();
