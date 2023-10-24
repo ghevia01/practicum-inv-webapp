@@ -12,23 +12,23 @@ body {
 
 body {
     font-family: Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .app-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    text-align: center;
+    justify-content: space-between;
     width: 100%;
     height: 3rem;
-    padding: 0 0.5rem;
+    padding: 0.5rem;
     color: #fff;
     background-color: #018065;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
-.menu-icon-container {
+.back-button-container,
+.menu-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,65 +37,64 @@ body {
     cursor: pointer;
 }
 
-.back-button-icon {
+.back-button-icon,
+.menu-button-icon {
     font-size: 1.6rem;
 }
 
-.menu-icon {
-    font-size: 1.8rem;
-}
-
-.app-main-content {
+.page-title-container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
 }
 
-/* .sub-header-nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 3rem;
-    padding-left: 0.5rem;
-} */
+.page-title-container h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
-.back-button {
+.page-main-content {
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.qr-scanner-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5rem;
 }
 
 .qr-scanner-container {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1rem;
+    width: 100%;
+    max-width: 30rem;
+    padding: 1.5rem;
+    gap: 2rem;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .video-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 14rem;
-    height: 14rem;
-    margin-top: 3rem;
-    border: 1px solid #018065;
+    width: 13rem;
+    height: 13rem;
     border-radius: 1rem;
+    border: 1px solid #d0d0d0;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
     overflow: hidden;
-}
-
-.qr-scanner-icon {
-    color: #018065;
-    font-size: 4rem;
 }
 
 .video-container video {
@@ -104,21 +103,25 @@ body {
     object-fit: cover;
 }
 
-.action-buttons-container {
+.qr-scanner-icon {
+    color: #018065;
+    font-size: 3rem;
+}
+
+.scanner-buttons-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 14rem;
-    height: auto;
+    width: 100%;
+    max-width: 30rem;
     transition: all 0.3s ease-in-out;
 }
 
-.qr-action-button {
+.scanner-action-button {
     font-size: 1rem;
     font-weight: bolder;
-    text-align: center;
     width: 100%;
-    padding: 1rem 0;
+    padding: 0.9rem 0;
     color: #fff;
     border: 1px solid #ffffff;
     border-radius: 1rem;
@@ -127,9 +130,64 @@ body {
     cursor: pointer;
 }
 
-.qr-action-button:hover {
+.scanner-action-button:hover {
     background-color: #00a17e;
     cursor: pointer;
+}
+
+.scan-results-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.scan-results-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 30rem;
+    gap: 1rem;
+}
+
+.scan-result-title {
+    display: flex;
+    align-items: center;
+    color: #018065;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    gap: 0.5rem;
+}
+
+.section-divider {
+    flex-grow: 1;
+    height: 0.1rem;
+    border: none;
+    outline: none;
+    background-color: #00a17e;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.50);
+}
+
+.scan-results-container dl {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scan-results-container dt,
+.scan-results-container dd {
+    flex: 0 0 50%;
+    padding: 0.75rem;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.scan-results-container dt {
+    color: #333;
+    font-weight: bold;
+}
+
+.scan-results-container dt:last-of-type,
+.scan-results-container dd:last-of-type {
+    border-bottom: none;
 }
 
 .hidden {
