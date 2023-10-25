@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gean Hevia (base)  (modify by) Gabriel R Rivera Gomez" />
+    <meta name="description" content="Inter Bayamon Device Inventory System" />
+
+    <!-- Favicon (will be set later on)-->
+    <link rel="icon" href="" type="image/x-icon" />
+
+    <title>Inter Bayamon Device Inventory System</title>
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" type="text/css" href="../css/account-manage-styles.css" />
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="menu-icon-container">
+        <i class="material-icons menu-icon">menu</i>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main-content">
+      <!-- Branding Section -->
+      <section class="branding-section">
+        <img
+          class="branding-image"
+          src="../img/inter-logo.png"
+          alt="Brand Logo"
+        />
+        <h1 class="branding-title">Device Inventory System</h1>
+      </section>
+
+      <!-- Section Divider -->
+      <hr class="section-divider" />
+      <button type="submit" class="btnModal" onclick="openpop()">Add User</button>
+      <div class="container-manage">
+        <div class="user-info" id="pop">
+            <input type="text" placeholder="Name"required>
+            <input type="text" placeholder="Username"required>
+            <input type="password" placeholder="Password"required>
+            <input type="email" placeholder="Email"required>
+            <input type="tel" placeholder="Phone"required>
+            <select class="user-sel" name="roles" id="role">
+              <option value="" class="grey" disabled selected>Select your option</option>
+              <option value="user" class="grey">User</option>
+              <option value="admin" class="grey">Admin</option>
+            </select>        
+            <button type="submit" class="btnCancel" onclick="closepop()">Cancel</button>
+            <button type="submit" class="btnSave" onclick="closepop()">Save</button>
+        </div>
+      </div>
+      <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Username</th>
+            <th>E-mail</th>
+            <th>Telefono</th>
+            <th>Role</th>
+        </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>Edit User</td>
+            </tr>
+    </table>
+
+
+
+    </main>
+    <script src="../javascript/accounf-manage.js"></script>
+  </body>
+</html>

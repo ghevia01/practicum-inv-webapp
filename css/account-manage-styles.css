@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    padding: 0 0.5rem;
+    color: #fff;
+    background-color: #018065;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.menu-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 100%;
+    cursor: pointer;
+}
+
+.menu-icon {
+    font-size: 1.8rem;
+}
+
+.app-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 1.2rem;
+}
+
+.branding-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 3rem;
+    gap: 1rem;
+}
+
+.branding-image {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: #eafffb;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.branding-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #464646;
+}
+
+.section-divider {
+    width: 90%;
+    height: 0.1rem;
+    margin-bottom: 1.4rem;
+    border: none;
+    outline: none;
+    background-color: #00a17e;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.50);
+}
+
+.action-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.action-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1.6rem;
+    color: #fff;
+    border: 1px solid #018065;
+    border-radius: 1rem;
+    background-color: #018065;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background-color: #00a17e;
+    border: none;
+    outline: 1px solid #00a17e;
+}
+
+.action-button-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+}
+
+.action-button-icon {
+    font-size: 2.5rem;
+}
+
+.action-button-text {
+    font-weight: bold;
+}
+/*====================Gabriel R Rivera Goemz===================================*/
+.user-info{
+    width: 15rem ; 
+    background: #018065;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,50%)scale(0.1);
+    text-align:center;
+    padding: 1rem 1rem 1rem 1rem ;
+    visibility: hidden;
+    transition: top 2s;
+
+}
+.open-pop{
+    visibility: visible;
+    top: 10%;
+    transform: translate(-50%,50%)scale(2);
+}
+.user-info input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius : 2rem;
+    font-size: 1rem;
+    color: #000000;
+    padding: 0.5rem 2rem 0.5rem 0.5rem ;
+    margin: 0.2rem;
+    border: 0.1rem solid #000000;
+}
+.user-sel{
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius : 2rem;
+    font-size: 1rem;
+    color: #000000;
+    padding: 0.5rem 2rem 0.5rem 0.5rem ;
+    margin: 0.2rem;
+    border: 0.1rem solid #000000;
+}
+.btnModal {
+    width: 90%;
+    height: 3rem;
+    background :#ffd350 ;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 e lepx rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 2rem;
+    color: #000000;
+    font-weight: 500;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.50);
+    border: 0.2rem solid #018065;
+}
+.btnSave{
+    width: 45%;
+    height: 2rem;
+    background :#15ff00 ;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 17px;
+    color: #000000;
+    font-weight: 600;
+    border: 0.1rem solid #000000;
+    margin: 0.2rem;
+}
+.btnCancel{
+    width: 45%;
+    height: 2rem;
+    background :#b10000 ;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 17px;
+    color: #000000;
+    font-weight: 600;
+    border: 0.1rem solid #000000;
+    margin: 0.2rem;
+}
+
+table {
+    margin: 0 auto;
+    border: 1px solid black;
+}
+td {
+    background-color: violet;
+    border: 1px solid black;
+}
+th {
+    border: 1px solid black;
+}
+/*=============================================================================*/
+@media screen and (max-width: 768px) {S
+    .app-header {
+        height: 3.2rem;
+    }
+
+    .action-button {
+        justify-content: space-between;
+        width: 82%;
+        height: 3.6rem;
+        border-radius: 0.6rem;
+    }
+
+    .action-button-icon-container {
+        width: 8rem;
+        height: 100%;
+        background-color: #FFFFFF;
+    }
+
+    .action-button-icon {
+        font-size: 2.4rem;
+        color: #000000;
+    }
+
+    .action-button-text {
+        display: flex;
+        font-size: 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+    }
+    /*====================Gabriel R Rivera Goemz===================================*/
+    .user-info{
+        width: 10rem ; 
+        background: #018065;
+        border-radius: 0.4rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,50%)scale(0.1);
+        text-align:center;
+        padding: 1rem 1rem 1rem 1rem ;
+        visibility: hidden;
+        transition: top 2s;
+
+    }
+    .open-pop{
+        visibility: visible;
+        top: 10%;
+        transform: translate(-50%,50%)scale(2);
+    }
+    .user-info input {
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius : 2rem;
+        font-size: 0.5rem;
+        font-weight: 600;
+        color: #000000;
+        padding: 0.5rem 2rem 0.5rem 0.5rem ;
+        margin: 0.2rem;
+        border: 0.1rem solid #000000;
+    }
+    .user-sel{
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius : 2rem;
+        font-size: 0.5rem;
+        font-weight: 600;
+        color: #000000;
+        padding: 0.5rem 2rem 0.5rem 0.5rem ;
+        margin: 0.2rem;
+        border: 0.1rem solid #000000;
+    }
+    .grey{
+        font-size:1.2rem;
+    }
+    .btnSave{
+        width: 43%;
+        height: 2rem;
+        background :#15ff00 ;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #000000;
+        font-weight: 600;
+        border: 0.1rem solid #000000;
+        margin: 0.2rem;
+    }
+    .btnCancel{
+        width: 43%;
+        height: 2rem;
+        background :#b10000 ;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #000000;
+        font-weight: 600;
+        border: 0.1rem solid #000000;
+        margin: 0.2rem;
+    }
+    /*=============================================================================*/
+}
