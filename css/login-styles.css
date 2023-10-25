@@ -20,7 +20,7 @@ body {
     color:#fff ;
     padding:40px;
     border-radius: 15px;
-    transition: width 2s;
+    transition: width 2s, height 2s;
 }
 
 .wrap h1 {
@@ -47,7 +47,7 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(255, 255,255, .2);
+    border: 2px solid rgb(255, 255, 255);
     border-radius : 40px;
     font-size: 17px;
     color: #fff;
@@ -101,9 +101,9 @@ img {
         background :#00a17e;
         width: 620px;
         color:#fff ;
-        padding:60px;
+        padding:20px;
         border-radius: 15px;
-        transition: width 2s;
+        transition: width 2s, height 2s;
     }
     
     .wrap .user{
@@ -117,7 +117,7 @@ img {
         background: transparent;
         border: none;
         outline: none;
-        border: 2px solid rgba(255, 255,255, .2);
+        border: 2px solid rgb(255, 255, 255);
         border-radius : 40px;
         font-size: 23px;
         color: #fff;
@@ -144,8 +144,10 @@ img {
     }
     .wrap .check{
 
-        font-size: 23px;
-        margin-left: 9px;
+        font-size: 20px;
+        margin-left: 10px;
+
+    
     }
     
 
