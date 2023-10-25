@@ -1,58 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gean Hevia" />
+    <meta name="description" content="Device Inventory System QR Scanner" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Gean Hevia" />
-  <meta name="description" content="Device Inventory System QR Scanner" />
+    <!-- Favicon (will be set later on)-->
+    <link rel="icon" href="" type="image/x-icon" />
 
-  <!-- Favicon (will be set later on)-->
-  <link rel="icon" href="" type="image/x-icon" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
 
-  <!-- Material Icons -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-    rel="stylesheet" crossorigin="anonymous" />
+    <!-- Main Styles -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/qr-scanner-styles.css"
+    />
 
-  <title>Device Inventory System QR Scanner</title>
+    <title>Device Inventory System QR Scanner</title>
+  </head>
 
-  <!-- Main Styles -->
-  <link rel="stylesheet" type="text/css" href="../css/qr-scanner-styles.css" />
-</head>
-
-<body>
-  <!-- Header Section -->
-  <header class="app-header">
-    <div class="menu-icon-container" onclick="goBack()">
-      <i class="material-icons back-button-icon">arrow_back</i>
-    </div>
-
-  </header>
-
-  <!-- Main Content -->
-  <main class="app-main-content">
-    <section class="qr-scanner-container">
-      <div class="video-container">
-        <i id="qrScannerIcon" class="material-icons qr-scanner-icon">qr_code_scanner</i>
-        <video id="qrVideo" class="hidden" playsinline muted></video>
-        <canvas id="qrCanvas" class="hidden"></canvas>
+  <body>
+    <!-- Header Section -->
+    <header class="app-header">
+      <div
+        class="back-button-container"
+        onclick="goBack()"
+        aria-label="Go Back"
+      >
+        <i class="material-icons back-button-icon">arrow_back</i>
       </div>
-      <section class="action-buttons-container">
-        <button id="scanButton" class="qr-action-button">
-          Scan QR Code
-        </button>
-        <button id="stopButton" class="qr-action-button hidden">
-          Stop Scanning
-        </button>
+      <div class="page-title-container">
+        <h1>QR Code Scanner</h1>
+      </div>
+      <div class="menu-button-container">
+        <!-- <i class="material-icons menu-button-icon"> menu </i> -->
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-main-content">
+      <section class="qr-scanner-section">
+        <div class="qr-scanner-container">
+          <div class="video-container">
+            <i id="qrScannerIcon" class="material-icons qr-scanner-icon"
+              >qr_code_scanner</i
+            >
+            <video
+              id="qrVideo"
+              class="hidden"
+              playsinline
+              muted
+              title="QR Code Scanner Video Feed"
+            ></video>
+            <canvas id="qrCanvas" class="hidden"></canvas>
+          </div>
+          <div class="scanner-buttons-container">
+            <button
+              id="scanButton"
+              class="scanner-action-button"
+              aria-label="Start QR Code Scanning"
+            >
+              Scan QR Code
+            </button>
+            <button
+              id="stopButton"
+              class="scanner-action-button hidden"
+              aria-label="Stop QR Code Scanning"
+            >
+              Stop Scanning
+            </button>
+          </div>
+        </div>
       </section>
-    </section>
-  </main>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
-  <script type="module" src="../javascript/qrScannerPageController.js"></script>
-  <script src="../javascript/utils.js"></script>
-</body>
+      <section class="scan-results-section">
+        <div class="scan-results-container">
+          <div class="scan-result-title">
+            <div class="section-divider"></div>
+            <h2>Scan Results</h2>
+            <div class="section-divider"></div>
+          </div>
+          <dl>
+            <dt class="scan-result-label">Device ID:</dt>
+            <dd id="deviceID">Y00123456</dd>
 
+            <dt class="scan-result-label">Device Model:</dt>
+            <dd id="deviceModel">ASUS ROG Gaming Desktop</dd>
+
+            <dt class="scan-result-label">Description:</dt>
+            <dd id="deviceDescription">
+              Black, Intel Core i7-13700F, 16GB Memory, NVIDIA GeForce RTX 3060,
+              512GB SSD
+            </dd>
+
+            <dt class="scan-result-label">Status:</dt>
+            <dd id="deviceStatus">Reparacion</dd>
+
+            <dt class="scan-result-label">Location:</dt>
+            <dd id="deviceLocation">CIT</dd>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="../javascript/qrScannerPageController.js"
+    ></script>
+    <script defer src="../javascript/utils.js"></script>
+  </body>
 </html>
