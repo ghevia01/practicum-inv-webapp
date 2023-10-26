@@ -8,7 +8,6 @@
         window.location.href = 'qr-scanner.html';
     });
 
-
     // Send the user to the accounts management page
     manageUsersPageButton.addEventListener('click', function () {
         window.location.href = 'account-manage.html';
