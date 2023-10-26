@@ -143,6 +143,20 @@ body {
     transition: top 2s;
 
 }
+.user-edit{
+    width: 15rem ; 
+    background: #018065;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,50%)scale(0.1);
+    text-align:center;
+    padding: 1rem 1rem 1rem 1rem ;
+    visibility: hidden;
+    transition: top 2s;
+
+}
 .open-pop{
     visibility: visible;
     top: 10%;
@@ -181,7 +195,7 @@ body {
     cursor: pointer;
     font-size: 2rem;
     color: #000000;
-    font-weight: 500;
+    font-weight: bold;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.50);
     border: 0.2rem solid #018065;
 }
@@ -217,15 +231,42 @@ body {
 }
 
 table {
+    width: 90%;
     margin: 0 auto;
-    border: 1px solid black;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    border: 0.1rem solid #000000;
+    box-shadow: rgba(0, 0, 0, .1);
 }
 td {
-    background-color: violet;
+    background-color: rgb(255, 255, 255);
     border: 1px solid black;
+    border-radius: 10px;
+    border: 0.1rem solid #000000;
+    font-size: 2rem;
+    text-indent: 0.1rem;
 }
 th {
     border: 1px solid black;
+    border-radius: 10px;
+    border: 0.1rem solid #000000;
+    background-color: #ffffff;
+    border: 0.2rem solid #018065;
+    font-size: 2rem;
+}
+.edit{
+    background :#ffd350 ;
+    border-radius: 40px;
+    box-shadow: 0 e lepx rgba(0, 0, 0, .1);
+    cursor: pointer;
+    color: #000000;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.50);
+    border: 0.2rem solid #018065;
+    text-align: center;
+    font-weight: 600;
+
+
 }
 /*=============================================================================*/
 @media screen and (max-width: 768px) {S

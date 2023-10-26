@@ -60,6 +60,19 @@
             <button type="submit" class="btnCancel" onclick="closepop()">Cancel</button>
             <button type="submit" class="btnSave" onclick="closepop()">Save</button>
         </div>
+        <div class="user-edit" id="popedit">
+          <input type="text" placeholder="Name"required>
+          <input type="text" placeholder="Username"required>
+          <input type="password" placeholder="Password"required>
+          <input type="email" placeholder="Email"required>
+          <input type="tel" placeholder="Phone"required>
+          <select class="user-sel" name="roles" id="role">
+            <option value="user" class="grey">User</option>
+            <option value="admin" class="grey">Admin</option>
+          </select>        
+          <button type="submit" class="btnCancel" onclick="closepopedit()">Cancel</button>
+          <button type="submit" class="btnSave" onclick="closepopedit()">Save</button>
+        </div>
       </div>
       <table>
         <tr>
@@ -71,13 +84,13 @@
             <th>Role</th>
         </tr>
             <tr>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
-                <td>Edit User</td>
+                <td>Y0012984</td>
+                <td>Gaby</td>
+                <td>Gaby</td>
+                <td>aemail@gmailo.com</td>
+                <td>787129847</td>
+                <td>user</td>
+                <td type="submit" class="edit" onclick="openpopedit()">Edit</td>
             </tr>
     </table>
 
