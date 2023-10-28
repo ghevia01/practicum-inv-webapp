@@ -1,33 +1,16 @@
-const video = document.getElementById("qrVideo");
-const canvas = document.getElementById("qrCanvas");
-const qrScannerIcon = document.getElementById("qrScannerIcon");
-const scanButton = document.getElementById("scanButton");
-const stopButton = document.getElementById("stopButton");
-const FACING_MODE = "environment";
-
+import { video, canvas } from "../utils/qrPageElements.js";
+import { getCameraStream } from "../utils/getCameraStream.js";
+import { toggleQRScannerUI } from "../utils/toggleQrScannerUI.js";
 import { scanQRCode } from "../modules/qrScannerModule.js";
 import { fetchItemData } from "../services/fetchItemData.js";
-
-// Toggle the UI between the scanning and the stopped states
-function toggleQRScannerUI(isScanning) {
-  scanButton.classList.toggle("hidden", isScanning);
-  qrScannerIcon.classList.toggle("hidden", isScanning);
-  stopButton.classList.toggle("hidden", !isScanning);
-  video.classList.toggle("hidden", !isScanning);
-}
-
-// Get the video stream from the camera
-async function getCameraStream() {
-  return await navigator.mediaDevices.getUserMedia({
-    video: { facingMode: FACING_MODE },
-  });
-}
+import { handleQRPageEvents } from "../eventHandlers/qrPageHandlers.js";
 
 // Start the video stream and the QR code scanning
-async function startScanning() {
+export async function startScanning() {
   try {
     console.log("Start scanning...");
 
+    // Get the video stream from the camera
     const stream = await getCameraStream();
 
     // Sets the video elements src to the stream from the camera
@@ -55,6 +38,24 @@ async function startScanning() {
   }
 }
 
+// Function to stop the video stream
+export function stopScanning() {
+  // Get the video stream
+  const stream = video.srcObject;
+
+  // Stop all media tracks in the stream
+  const tracks = stream.getTracks();
+  tracks.forEach((track) => {
+    track.stop();
+  });
+
+  // Remove the stream from the video element
+  video.srcObject = null;
+
+  // Hide the video stream and show the start button
+  toggleQRScannerUI(false);
+}
+
 // Function to handle the detected QR code
 const onQRCodeDetected = async (data) => {
   // Log the detected QR code data to console
@@ -77,26 +78,5 @@ const onQRCodeDetected = async (data) => {
   stopScanning(video);
 };
 
-// Function to stop the video stream
-function stopScanning(videoElement) {
-  // Get the video stream
-  const stream = videoElement.srcObject;
-
-  // Stop all media tracks in the stream
-  const tracks = stream.getTracks();
-  tracks.forEach((track) => {
-    track.stop();
-  });
-
-  // Remove the stream from the video element
-  videoElement.srcObject = null;
-
-  // Hide the video stream and show the start button
-  toggleQRScannerUI(false);
-}
-
-// Attach the startScanning function to the button's click event
-scanButton.addEventListener("click", startScanning);
-
-// Attach the stopScanning function to the button's click event
-stopButton.addEventListener("click", () => stopScanning(video));
+// Call the function to handle the qr page events
+handleQRPageEvents();
