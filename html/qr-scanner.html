@@ -76,33 +76,50 @@
         </div>
       </section>
 
-      <section class="scan-results-section">
+      <section
+        id="scanResultsSection"
+        class="scan-results-section hidden"
+        aria-hidden="true"
+      >
         <div class="scan-results-container">
           <div class="scan-result-title">
-            <div class="section-divider"></div>
-            <h2>Scan Results</h2>
-            <div class="section-divider"></div>
+            <h2>Search Results</h2>
           </div>
           <dl>
-            <dt class="scan-result-label">Device ID:</dt>
-            <dd id="deviceID">Y00123456</dd>
+            <dt class="scan-result-label">Ptag</dt>
+            <dd id="devicePTag">Y00101000</dd>
 
-            <dt class="scan-result-label">Device Model:</dt>
-            <dd id="deviceModel">ASUS ROG Gaming Desktop</dd>
+            <dt class="scan-result-label">Model</dt>
+            <dd id="deviceModel">PC LENOVO</dd>
 
-            <dt class="scan-result-label">Description:</dt>
-            <dd id="deviceDescription">
-              Black, Intel Core i7-13700F, 16GB Memory, NVIDIA GeForce RTX 3060,
-              512GB SSD
-            </dd>
+            <dt class="scan-result-label">Description</dt>
+            <dd id="deviceDescription">THINKSTATION P520C</dd>
 
-            <dt class="scan-result-label">Status:</dt>
-            <dd id="deviceStatus">Reparacion</dd>
+            <dt class="scan-result-label">Serial No.</dt>
+            <dd id="deviceSerial_No">MJ08RXVA</dd>
 
-            <dt class="scan-result-label">Location:</dt>
-            <dd id="deviceLocation">CIT</dd>
+            <dt class="scan-result-label">Status</dt>
+            <dd id="deviceStatus">Active</dd>
+
+            <dt class="scan-result-label">Location</dt>
+            <dd id="deviceLocation">F-210</dd>
+
+            <dt class="scan-result-label">Comments</dt>
+            <dd id="deviceComments">N/A</dd>
           </dl>
         </div>
+      </section>
+
+      <section
+          id="noResultsSection"
+          class="no-results-section hidden"
+          aria-hidden="true"
+        >
+          <h3>No Results Found</h3>
+          <p>
+            We couldn't find any matching results for the scanned QR code.
+            Please try again or check if the QR code is valid.
+          </p>
       </section>
     </main>
 
