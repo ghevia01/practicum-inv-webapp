@@ -6,32 +6,32 @@ include 'db_connection.php';
 // Set the content-type header to application/json
 header('Content-Type: application/json');
 
-// Check if the itemId is set in the GET request
-if (isset($_GET['itemId'])) {
-    // Get the item ID
-    $itemId = $_GET['itemId'];
+// Check if the itemPtag is set in the GET request
+if (!isset($_GET['itemPtag'])) {
+    echo json_encode(['error' => 'Item Tag is missing']);
+    exit;
+}
 
-    // Prepare SQL statement
-    $stmt = $dbh->prepare('SELECT * FROM items WHERE Ptag = :itemId');
-    $stmt->bindParam('itemId', $itemId, PDO::PARAM_STR);
+// Get the item Ptag from the GET request
+$itemPtag = $_GET['itemPtag'];
 
-    // Execute SQL statement
-    $stmt->execute();
+// Prepare SQL statement
+$stmt = $dbh->prepare('SELECT * FROM items WHERE Ptag = :itemPtag');
+$stmt->bindParam('itemPtag', $itemPtag, PDO::PARAM_STR);
 
-    // Fetch the item from the database
-    $item = $stmt->fetch(PDO::FETCH_ASSOC);
+// Execute SQL statement
+$stmt->execute();
 
-    // Close the database connection
-    $dbh = null;
+// Fetch the item from the database
+$item = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($item) {
-        // If the item exists, return it
-        echo json_encode($item);
-    } else {
-        // If the item does not exist, return an error message
-        echo json_encode(['error' => 'Item not found']);
-    }
+// Close the database connection
+$dbh = null;
+
+if ($item) {
+    // If the item exists, return it
+    echo json_encode($item);
 } else {
-    // If itemId is not set in the request, return an error message
-    echo json_encode(['error' => 'Item ID is missing']);
+    // If the item does not exist, return an error message
+    echo json_encode(['error' => 'Item not found']);
 }
