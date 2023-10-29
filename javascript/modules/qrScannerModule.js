@@ -1,4 +1,4 @@
-function scanQRCode(video, canvas, onQRCodeDetected) {
+const scanQRCode = (video, canvas, onQRCodeDetected) => {
   // Get the canvas context (used to draw and manipulate the canvas)
   const canvasContext = canvas.getContext("2d", { willReadFrequently: true });
 
@@ -7,16 +7,20 @@ function scanQRCode(video, canvas, onQRCodeDetected) {
   let lastVideoHeight = 0;
 
   // Set the canvas dimensions
-  function setupCanvas() {
-    if (lastVideoWidth === video.videoWidth && lastVideoHeight === video.videoHeight) {
-      console.log("Video dimensions: ", video.videoWidth, video.videoHeight);
+  const setupCanvas = () => {
+    if (
+      lastVideoWidth !== video.videoWidth ||
+      lastVideoHeight !== video.videoHeight
+    ) {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
+      lastVideoWidth = video.videoWidth;
+      lastVideoHeight = video.videoHeight;
     }
-  }
+  };
 
   // Function to continuously scan the video stream for QR codes
-  function scan() {
+  const scan = () => {
     // Check if video dimensions are ready
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
       setupCanvas();
@@ -26,7 +30,12 @@ function scanQRCode(video, canvas, onQRCodeDetected) {
 
       try {
         // Get the image data from the canvas
-        const imageData = canvasContext.getImageData(0 ,0, canvas.width, canvas.height);
+        const imageData = canvasContext.getImageData(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
 
         // Get the decoded QR code from the image data
         const code = jsQR(imageData.data, imageData.width, imageData.height);
@@ -42,9 +51,9 @@ function scanQRCode(video, canvas, onQRCodeDetected) {
     }
     // Request the next frame
     requestAnimationFrame(scan);
-  }
+  };
   // Start scanning
   scan();
-}
+};
 
 export { scanQRCode };
