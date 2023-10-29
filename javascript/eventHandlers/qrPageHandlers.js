@@ -1,7 +1,17 @@
+/**
+ * @module QRPageEventHandlers
+ * @description Event handlers for QR Page UI elements.
+ */
+
 import { qrPageBackButton, scanButton, stopButton } from "../utils/qrPageElements.js";
 import { startScanning, stopScanning } from "../controllers/qrPageController.js";
 
-export function handleQRPageEvents() {
+/**
+ * Attach event handlers to the UI elements on the QR page.
+ * @export
+ * @returns {void}
+ */
+export const handleQRPageEvents = () => {
   // Attach function to send the user back to the main page
   qrPageBackButton.addEventListener("click", () => window.location.href = "main.html");
 
