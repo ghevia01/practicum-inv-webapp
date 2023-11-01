@@ -110,7 +110,7 @@ const onQRCodeDetected = async (data) => {
 
   try {
     const itemData = await fetchItemData(
-      "http://localhost/practicum-inv-webapp/api/getItemById.php",
+      "http://localhost/practicum-inv-webapp/api/getItemByPtag.php",
       data
     );
 
