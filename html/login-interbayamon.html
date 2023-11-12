@@ -11,15 +11,15 @@
   </head>
   <body>
     <div class="wrap">
-      <form action="">
+      <form method="POST" action="../api/login.php">
         <h1>
           <img class="imgedit" src="../assets/inter-logo.png" alt="Inter Logo" />
         </h1>
         <div class="user">
-          <input type="text" placeholder="Username" required />
+          <input type="text" name="username" placeholder="Username" required />
         </div>
         <div class="user">
-          <input type="password" placeholder="Password" required />
+          <input type="password" name="password" placeholder="Password" required />
         </div>
         <div class="check">
           <label><input class="larger" type="checkbox" /> Remember Me</label

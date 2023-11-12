@@ -99,6 +99,7 @@ img {
     width: 100px;
     height: 50px;
 }
+
 @media (max-width:1000px){
     .wrap{
         background :#00a17e;
