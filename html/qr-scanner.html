@@ -77,53 +77,25 @@
       </section>
 
       <section
-        id="scanResultsSection"
+        id="resultsSection"
         class="scan-results-section hidden"
         aria-hidden="true"
       >
-        <div class="scan-results-container">
-          <div class="scan-result-title">
-            <h2>Search Results</h2>
-          </div>
-          <dl>
-            <dt class="scan-result-label">Ptag</dt>
-            <dd id="devicePTag">Y00101000</dd>
-
-            <dt class="scan-result-label">Model</dt>
-            <dd id="deviceModel">PC LENOVO</dd>
-
-            <dt class="scan-result-label">Description</dt>
-            <dd id="deviceDescription">THINKSTATION P520C</dd>
-
-            <dt class="scan-result-label">Serial No.</dt>
-            <dd id="deviceSerial_No">MJ08RXVA</dd>
-
-            <dt class="scan-result-label">Status</dt>
-            <dd id="deviceStatus">Active</dd>
-
-            <dt class="scan-result-label">Location</dt>
-            <dd id="deviceLocation">F-210</dd>
-
-            <dt class="scan-result-label">Comments</dt>
-            <dd id="deviceComments">N/A</dd>
-          </dl>
-        </div>
+        <div id="resultsContainer" class="results-container"></div>
       </section>
 
       <section
-          id="noResultsSection"
-          class="no-results-section hidden"
-          aria-hidden="true"
-        >
-          <h3>No Results Found</h3>
-          <p>
-            We couldn't find any matching results for the scanned QR code.
-            Please try again or check if the QR code is valid.
-          </p>
+        id="noResultsSection"
+        class="no-results-section hidden"
+        aria-hidden="true"
+      >
+        <h3 id="noResultsSectionHeader"></h3>
+        <p id="noResultsSectionMessage"></p>
       </section>
     </main>
 
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"
