@@ -3,7 +3,7 @@ import {
   scanButton,
   stopButton,
   video,
-} from "./qrPageElements.js";
+} from "../utils/qrPageElements.js";
 
 // Toggle the UI between the scanning and the stopped states
 export const toggleQRScannerUI = (isScanning) => {
