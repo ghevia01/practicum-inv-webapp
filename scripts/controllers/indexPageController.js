@@ -3,7 +3,7 @@
  * @description Coordinates between the main page view and model.
  */
 
-import { handleMainPageEvents } from "../eventHandlers/mainPageHandlers.js";
+import { handleIndexPageEvents } from "../eventHandlers/indexPageHandlers.js";
 
 // Call the function to handle the main page events
-handleMainPageEvents();
+handleIndexPageEvents();
