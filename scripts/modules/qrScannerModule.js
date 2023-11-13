@@ -1,4 +1,5 @@
-const scanQRCode = (video, canvas, onQRCodeDetected) => {
+export const scanQRCode = (video, canvas, onQRCodeDetected) => {
+  
   // Get the canvas context (used to draw and manipulate the canvas)
   const canvasContext = canvas.getContext("2d", { willReadFrequently: true });
 
@@ -55,5 +56,3 @@ const scanQRCode = (video, canvas, onQRCodeDetected) => {
   // Start scanning
   scan();
 };
-
-export { scanQRCode };
