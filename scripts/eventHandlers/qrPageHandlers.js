@@ -12,8 +12,8 @@ import { startScanning, stopScanning } from "../controllers/qrPageController.js"
  * @returns {void}
  */
 export const handleQRPageEvents = () => {
-  // Attach function to send the user back to the main page
-  qrPageBackButton.addEventListener("click", () => window.location.href = "main.html");
+  // Attach function to send the user back to the index page
+  qrPageBackButton.addEventListener("click", () => window.location.href = "index.html");
 
   // Attach the startScanning function to the button's click event
   scanButton.addEventListener("click", startScanning);
