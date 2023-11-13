@@ -134,7 +134,7 @@ body {
     cursor: pointer;
 }
 
-.scan-results-section {
+.results-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,7 +142,7 @@ body {
     width: 100%;
 }
 
-.scan-results-container {
+.result-card {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -153,7 +153,7 @@ body {
     overflow: hidden;
 }
 
-.scan-result-title {
+.result-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,38 +161,38 @@ body {
     background-color: #018065;
 }
 
-.scan-result-title h2 {
+.result-title h2 {
     font-size: 1.3rem;
     font-weight: bolder;
     color: #ffffff;
 }
 
-.scan-results-container dl {
+.result-card dl {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 0.5rem;
 }
 
-.scan-results-container dt {
+.result-card dt {
     /* color: #dade5e; */
     font-weight: bold;
     color: #333;
 }
 
-.scan-results-container dd {
+.result-card dd {
     color: #555;
 }
 
-.scan-results-container dt,
-.scan-results-container dd {
+.result-card dt,
+.result-card dd {
     flex: 0 0 50%;
     padding: 0.75rem;
     border-bottom: 1px solid #d0d0d0;
 }
 
-.scan-results-container dt:last-of-type,
-.scan-results-container dd:last-of-type {
+.result-card dt:last-of-type,
+.result-card dd:last-of-type {
     border-bottom: none;
 }
 
