@@ -3,19 +3,13 @@
 $serverName = "localhost";
 $userName = "root";
 $password = "";
-$dbName = "phpmyadmin" ;
+$dbName = "phpmyadmin";
 
 //connector
-$con= mysqli_connect($serverName,$userName,$password,$dbName);
+$con = mysqli_connect($serverName, $userName, $password, $dbName);
 
-if(mysqli_connect_errno()){
+if (mysqli_connect_errno()) {
     echo "Failed Connection!";
     exit();
 }
 echo "Connection success !";
-
-
-
-
-
-?>
