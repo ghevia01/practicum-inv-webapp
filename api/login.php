@@ -18,8 +18,7 @@ if(isset($_POST['username'])){
     $result = mysqli_query($connection, $sql);
 
     if ($result && mysqli_num_rows($result) == 1) {
-        echo 'yes';
-        header("Location: main.html");
+        header("Location: ../html/main.html");
     } else {
         echo 'no';
     }
