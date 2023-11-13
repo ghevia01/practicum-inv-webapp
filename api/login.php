@@ -7,9 +7,7 @@ $dbName = "test";
 // Create a database connection
 $connection = mysqli_connect($serverName, $username, $password, $dbName);
 
-
-
-if(isset($_POST['username'])){
+if (isset($_POST['username'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -26,9 +24,4 @@ if(isset($_POST['username'])){
     mysqli_close($connection);
 }
 
-
-
-
-
-?>
 

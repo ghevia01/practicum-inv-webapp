@@ -2,24 +2,24 @@
  * @module QRPageController
  * @description Coordinates between the QR Page view and model.
  */
-
 import { video, canvas } from "../utils/qrPageElements.js";
-import { getCameraStream } from "../utils/getCameraStream.js";
-import { toggleQRScannerUI, toggleSectionVisibility } from "../utils/toggleQrScannerUI.js";
+import { getCameraStream, extractQueryParam } from "../utils/qrUtils.js";
+import { createItemCard } from "../utils/createItemCard.js";
+import {
+  toggleQRScannerUI,
+  toggleSectionVisibility,
+} from "../modules/qrScannerUI.js";
 import { scanQRCode } from "../modules/qrScannerModule.js";
-import { fetchItemData } from "../services/fetchItemData.js";
+import { fetchItemData } from "../services/inventoryServices.js";
 import { handleQRPageEvents } from "../eventHandlers/qrPageHandlers.js";
 
 import {
-  scanResultsSection,
-  devicePTag,
-  deviceModel,
-  deviceDescription,
-  deviceSerial_No,
-  deviceStatus,
-  deviceLocation,
-  deviceComments,
+  resultsSection,
   noResultsSection,
+  noResultsHeaderTxt,
+  noResultsMessageTxt,
+  errorHeaderTxt,
+  errorMessageTxt,
 } from "../utils/qrPageElements.js";
 
 /**
@@ -46,7 +46,7 @@ const initializeCameraAndStream = async () => {
  * @returns {void}
  */
 const handleVideoMetadataLoaded = () => {
-  scanQRCode(video, canvas, onQRCodeDetected);
+  scanQRCode(video, canvas, onQrCodeDetected);
 
   // Remove the 'loadedmetadata' event listener to prevent multiple invocations and improve performance.
   video.removeEventListener("loadedmetadata", handleVideoMetadataLoaded);
@@ -67,7 +67,7 @@ export const startScanning = async () => {
 
     // Check if the video metadata is already loaded
     if (video.readyState >= video.HAVE_ENOUGH_DATA) {
-      scanQRCode(video, canvas, onQRCodeDetected);
+      scanQRCode(video, canvas, onQrCodeDetected);
     } else {
       // Add event listener to the video element, wait for the metadata to load, then start scanning
       video.addEventListener("loadedmetadata", handleVideoMetadataLoaded);
@@ -98,36 +98,15 @@ export const stopScanning = () => {
   toggleQRScannerUI(false);
 };
 
-/**
- * Handles QR code detection and item data fetching.
- * @async
- * @param {string} data - QR code data
- * @returns {Promise<void>}
- */
-const onQRCodeDetected = async (data) => {
-  // Log the detected QR code data to console
-  console.log(data);
-
-  try {
-    const itemData = await fetchItemData(
-      "http://localhost/practicum-inv-webapp/api/getItemByPtag.php",
-      data
-    );
-
-    // If the item exists, display the data, otherwise display a message
-    if (itemData.error === "Item not found") {
-      displayNoResultsMsg();
-    } else {
-      displayItemData(itemData);
-    }
-
-    console.log(itemData);
-  } catch (error) {
-    // Handle errors like network issues, server down, etc.
-    console.error("Error fetching item data:", error);
-  } finally {
-    // Always stop scanning, whether or not we found an item or encountered an error
-    stopScanning(video);
+// Function to process the response from the server
+const processResponse = (data) => {
+  // If the item exists, display the data, otherwise display a message
+  if (!data.error) {
+    displayItemData(data);
+  } else if (data.error === "Item not found") {
+    displayNoResultsMsg(noResultsHeaderTxt, noResultsMessageTxt);
+  } else {
+    displayNoResultsMsg(errorHeaderTxt, errorMessageTxt);
   }
 };
 
@@ -137,27 +116,66 @@ const onQRCodeDetected = async (data) => {
  * @returns {void}
  */
 const displayItemData = (itemData) => {
-  // Update text content for each item attribute
-  devicePTag.textContent = itemData.Ptag;
-  deviceModel.textContent = itemData.Model;
-  deviceDescription.textContent = itemData.Description;
-  deviceSerial_No.textContent = itemData.Serial_No;
-  deviceStatus.textContent = itemData.Status;
-  deviceLocation.textContent = itemData.Location;
-  deviceComments.textContent = itemData.Comments;
+  // Create the item card element
+  const cardElement = createItemCard(itemData);
+
+  // Clear the results section
+  resultsSection.innerHTML = "";
+
+  // Append the card element to the results section
+  resultsSection.appendChild(cardElement);
 
   // Toggle visibility of UI sections
   toggleSectionVisibility(noResultsSection, false);
-  toggleSectionVisibility(scanResultsSection, true);
+  toggleSectionVisibility(resultsSection, true);
 };
 
 /**
  * Displays a message in the UI indicating that no results were found.
  */
-const displayNoResultsMsg = () => {
+const displayNoResultsMsg = (headerTxt, messageTxt) => {
+  // Update text content in the no results section
+  noResultsSectionHeader.textContent = headerTxt;
+  noResultsSectionMessage.textContent = messageTxt;
+
   // Toggle visibility of UI sections
-  toggleSectionVisibility(scanResultsSection, false);
+  toggleSectionVisibility(resultsSection, false);
   toggleSectionVisibility(noResultsSection, true);
+};
+
+/**
+ * Handles QR code detection and item data fetching.
+ * @async
+ * @param {string} data - QR code data
+ * @returns {Promise<void>}
+ */
+const onQrCodeDetected = async (qrData) => {
+  // Log the detected QR code data to console
+  console.log(qrData);
+
+  // Extract and validate the query parameter from the QR data
+  try {
+    // Extract the query parameter from the QR data
+    const { queryKey, queryValue } = extractQueryParam(qrData);
+
+    console.log("Query key:", queryKey);
+    console.log("Query value:", queryValue);
+
+    // Make the HTTP request to the server
+    fetchItemData(
+      "http://localhost/practicum-inv-webapp/api/read-inventory.php",
+      queryKey,
+      queryValue,
+    )
+      .then(processResponse)
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        displayNoResultsMsg(errorHeaderTxt, errorMessageTxt);
+      })
+      .finally(() => stopScanning());
+  } catch (error) {
+    displayNoResultsMsg(errorHeaderTxt, errorMessageTxt);
+  }
 };
 
 // Call the function to handle the qr page events
