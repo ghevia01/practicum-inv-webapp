@@ -20,7 +20,6 @@ if(isset($_POST['username'])){
     if ($result && mysqli_num_rows($result) == 1) {
         header("Location: ../html/main.html");
     } else {
-        echo '<script>alert("Login failed. Please check your username and password.");';
         echo 'window.location.href = "../html/login-interbayamon-fail.html";</script>';
     }
     
