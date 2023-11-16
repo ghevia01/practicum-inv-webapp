@@ -21,7 +21,7 @@ if(isset($_POST['username'])){
         header("Location: ../html/main.html");
     } else {
         echo '<script>alert("Login failed. Please check your username and password.");';
-        echo 'window.location.href = "../html/login-interbayamon.html";</script>';
+        echo 'window.location.href = "../html/login-interbayamon-fail.html";</script>';
     }
     
 

@@ -25,8 +25,14 @@
   <body>
     <!-- Header Section -->
     <header class="app-header">
-      <div class="menu-icon-container">
-        <i class="material-icons menu-icon">menu</i>
+      <div id="backButton" class="back-button-container" aria-label="Go Back">
+        <i class="material-icons back-button-icon">arrow_back</i>
+      </div>
+      <div class="page-title-container">
+        <h1></h1>
+      </div>
+      <div class="menu-button-container">
+        <!-- <i class="material-icons menu-button-icon"> menu </i> -->
       </div>
     </header>
 
@@ -84,17 +90,25 @@
             <th>Role</th>
         </tr>
             <tr>
-                <td>Y0012984</td>
-                <td>Gaby</td>
-                <td>Gaby</td>
-                <td>aemail@gmailo.com</td>
-                <td>787129847</td>
-                <td>user</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td type="submit" class="edit" onclick="openpopedit()">Edit</td>
             </tr>
     </table>
 
     </main>
-    <script src="../scripts/modules/account-manage.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="../scripts/controllers/qrPageController.js"
+    ></script>
   </body>
 </html>
