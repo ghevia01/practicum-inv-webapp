@@ -11,7 +11,7 @@
 
     <!-- Material Icons -->
     <link
-      href="https://fonts.googleapis.com/css?family=Material+Icons"
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
       rel="stylesheet"
       crossorigin="anonymous"
     />
@@ -78,10 +78,12 @@
 
       <section
         id="resultsSection"
-        class="scan-results-section hidden"
+        class="results-section hidden"
         aria-hidden="true"
       >
         <div id="resultsContainer" class="results-container"></div>
+
+        <div id="saveButtonContainer" class="save-button-container"></div>
       </section>
 
       <section
@@ -93,6 +95,12 @@
         <p id="noResultsSectionMessage"></p>
       </section>
     </main>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen hidden">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Please wait...</div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
