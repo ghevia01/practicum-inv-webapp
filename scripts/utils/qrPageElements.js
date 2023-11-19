@@ -19,10 +19,16 @@ export const deviceStatus = document.getElementById("deviceStatus");
 export const deviceLocation = document.getElementById("deviceLocation");
 export const deviceComments = document.getElementById("deviceComments");
 
+// Save button elements
+export const saveButtonContainer = document.getElementById("saveButtonContainer");
+
 // No results section elements
 export const noResultsSection = document.getElementById("noResultsSection");
 export const noResultsSectionHeader = document.getElementById("noResultsSectionHeader");
 export const noResultsSectionMessage = document.getElementById("noResultsSectionMessage");
+
+// Loading screen elements
+export const loadingScreen = document.getElementById("loadingScreen");
 
 // Custom messages for no results section
 export const noResultsHeaderTxt = "No Results Found";
