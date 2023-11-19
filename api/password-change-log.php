@@ -1,15 +1,54 @@
 <?php
+$email = $_POST["email"];
+$token = bin2hex(random_bytes(16));
 
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "phpmyadmin";
+$token_hash = hash("sha256", $token);
 
-//connector
-$con = mysqli_connect($serverName, $userName, $password, $dbName);
+$expiry = date("Y-m-d H:i:s", time() + 60 * 30);
 
-if (mysqli_connect_errno()) {
-    echo "Failed Connection!";
-    exit();
+$mysqli = require __DIR__ . "/database.php";
+
+$sql = "UPDATE logintable
+        SET reset_token_hash = ?,
+            reset_token_expires_at = ?
+        WHERE email = ?";
+
+$stmt = $mysqli->prepare($sql);
+
+$stmt->bind_param("sss", $token_hash, $expiry, $email);
+
+$stmt->execute();
+
+if ($mysqli->affected_rows) {
+
+    $mail = require __DIR__ . "/mailer.php";
+
+    $mail->setFrom("noreply@example.com");
+    $mail->addAddress($email);
+    $mail->Subject = "Password Reset";
+    $mail->Body = <<<END
+
+    Click <a href="http://example.com/reset-password.php?token=$token">here</a> 
+    to reset your password.
+
+    END;
+
+    try {
+
+        $mail->send();
+
+    } catch (Exception $e) {
+
+        echo "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
+
+    }
+
 }
-echo "Connection success !";
+
+echo "Message sent, please check your inbox.";
+
+
+
+
+
+?>
