@@ -17,7 +17,7 @@ try {
     // Function to validate location
     function isValidLocation($location)
     {
-        return preg_match('/^[A-G]-\d{3}$/', $location);
+        return preg_match('/^[A-G]-\d{3}[A-Z]?$/', $location);
     }
 
     // Function to update item in the database
