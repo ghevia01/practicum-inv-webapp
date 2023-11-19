@@ -1,6 +1,6 @@
 import { handleEditClick } from "../eventHandlers/itemCardHandlers.js";
 import { createEditIcon, createCancelIcon, createSelect } from "./domUtils.js";
-import { keysToShow } from "../../contants/qrPageContants.js";
+import { keysToShow, locationOptions } from "../../contants/qrPageContants.js";
 
 export const createItemCard = (fetchedItemData) => {
   // Create the card element
@@ -31,8 +31,6 @@ export const createItemCard = (fetchedItemData) => {
     dd.textContent = fetchedItemData[key] !== undefined ? fetchedItemData[key] : "N/A";
 
     if (key === "Location") {
-      // Create location options
-      const locationOptions = ["F-201", "F-202", "F-203", "F-204"];
 
       // Create a copy of fetchedItemData for this card
       const itemData = { ...fetchedItemData };
