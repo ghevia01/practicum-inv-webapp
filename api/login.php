@@ -16,8 +16,9 @@ if (isset($_POST['username'])) {
     $result = mysqli_query($connection, $sql);
 
     if ($result && mysqli_num_rows($result) == 1) {
-        header("Location: ../html/main.html");
+        header("Location: ../html/index.html");
     } else {
+        echo '<script>';
         echo 'window.location.href = "../html/login-interbayamon-fail.html";</script>';
     }
     
