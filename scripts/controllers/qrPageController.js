@@ -2,12 +2,15 @@
  * @module QRPageController
  * @description Coordinates between the QR Page view and model.
  */
+import { readInventoryURL } from "../../contants/qrPageContants.js";
 import { video, canvas } from "../utils/qrPageElements.js";
 import { getCameraStream, extractQueryParam } from "../utils/qrUtils.js";
 import { createItemCard } from "../utils/createItemCard.js";
+import { saveButtonContainer } from "../utils/qrPageElements.js";
 import {
   toggleQRScannerUI,
   toggleSectionVisibility,
+  toggleLoadingScreen,
 } from "../modules/qrScannerUI.js";
 import { scanQRCode } from "../modules/qrScannerModule.js";
 import { fetchItemData } from "../services/inventoryServices.js";
@@ -99,11 +102,11 @@ export const stopScanning = () => {
 };
 
 // Function to process the response from the server
-const processResponse = (data) => {
+const processResponse = (fetchedItemData) => {
   // If the item exists, display the data, otherwise display a message
-  if (!data.error) {
-    displayItemData(data);
-  } else if (data.error === "Item not found") {
+  if (!fetchedItemData.error) {
+    displayItemData(fetchedItemData);
+  } else if (fetchedItemData.error === "Item not found") {
     displayNoResultsMsg(noResultsHeaderTxt, noResultsMessageTxt);
   } else {
     displayNoResultsMsg(errorHeaderTxt, errorMessageTxt);
@@ -112,18 +115,19 @@ const processResponse = (data) => {
 
 /**
  * Updates UI and displays item data.
- * @param {Object} itemData - Item details
+ * @param {Object} fetchedItemData - Item details
  * @returns {void}
  */
-const displayItemData = (itemData) => {
+const displayItemData = (fetchedItemData) => {
   // Create the item card element
-  const cardElement = createItemCard(itemData);
+  const cardElement = createItemCard(fetchedItemData);
 
   // Clear the results section
   resultsSection.innerHTML = "";
 
-  // Append the card element to the results section
+  // Append the card element and save button to the results section
   resultsSection.appendChild(cardElement);
+  resultsSection.appendChild(saveButtonContainer);
 
   // Toggle visibility of UI sections
   toggleSectionVisibility(noResultsSection, false);
@@ -150,20 +154,21 @@ const displayNoResultsMsg = (headerTxt, messageTxt) => {
  * @returns {Promise<void>}
  */
 const onQrCodeDetected = async (qrData) => {
-  // Log the detected QR code data to console
-  console.log(qrData);
+
+  // Stop scanning the video stream
+  stopScanning();
 
   // Extract and validate the query parameter from the QR data
   try {
+    // Toggle the loading screen
+    toggleLoadingScreen(true);
+    
     // Extract the query parameter from the QR data
     const { queryKey, queryValue } = extractQueryParam(qrData);
 
-    console.log("Query key:", queryKey);
-    console.log("Query value:", queryValue);
-
     // Make the HTTP request to the server
     fetchItemData(
-      "http://localhost/practicum-inv-webapp/api/read-inventory.php",
+      readInventoryURL,
       queryKey,
       queryValue,
     )
@@ -172,8 +177,9 @@ const onQrCodeDetected = async (qrData) => {
         console.error("Error fetching data:", error);
         displayNoResultsMsg(errorHeaderTxt, errorMessageTxt);
       })
-      .finally(() => stopScanning());
+      .finally(() => toggleLoadingScreen(false));
   } catch (error) {
+    toggleLoadingScreen(false);
     displayNoResultsMsg(errorHeaderTxt, errorMessageTxt);
   }
 };
