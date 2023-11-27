@@ -1,29 +1,41 @@
 <?php
-$serverName = "localhost";
-$username = "root";
-$password = "";
-$dbName = "test";
 
-// Create a database connection
-$connection = mysqli_connect($serverName, $username, $password, $dbName);
+session_start();
 
-if (isset($_POST['username'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+include 'db-connection.php';
 
-    $sql = "SELECT * FROM logintable WHERE user = '$username' AND pass = '$password' LIMIT 1";
+if (isset($_POST["loginBtn"])) {
+    if (isset($_POST["username"], $_POST["password"])) {
+        $username = trim($_POST["username"]);
+        $password = trim($_POST["password"]);
 
-    $result = mysqli_query($connection, $sql);
-
-    if ($result && mysqli_num_rows($result) == 1) {
-        header("Location: ../html/index.html");
-    } else {
-        echo '<script>';
-        echo 'window.location.href = "../html/login-interbayamon-fail.html";</script>';
+        $sql = "SELECT * FROM users WHERE username = :username";
+        $stmt = $dbh->prepare($sql);
+        $params = ['username' => $username];
+        $stmt->execute($params);
+        if ($stmt->rowCount() > 0) {
+            $getRow = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (password_verify($password, $getRow['password'])) {
+                unset($getRow['password']);
+                $_SESSION = $getRow;
+                header('location: ../html/index.html');
+                exit();
+            } else {
+                $_SESSION['login_error'] = 'Username or Password incorrect.';
+                header('Location: ../html/login.html');
+                exit();
+            }
+        } else {
+            $_SESSION['login_error'] = 'Username or Password incorrect.';
+            header('Location: ../html/login.html');
+            exit();
+        }
     }
-    
-
-    mysqli_close($connection);
-
 }
 
+if (isset($_GET['get_error_message'])) {
+    $errorMessage = isset($_SESSION['login_error']) ? $_SESSION['login_error'] : '';
+    unset($_SESSION['login_error']);
+    echo $errorMessage;
+    exit();
+}
