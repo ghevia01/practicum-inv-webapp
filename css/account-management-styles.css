@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 3rem;
+    padding: 0.5rem;
+    color: #fff;
+    background-color: #018065;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 100%;
+    cursor: pointer;
+}
+
+.back-button-icon {
+    font-size: 1.6rem;
+}
+
+.page-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.page-title-container h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.page-main-content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    padding: 1rem 1rem 1.2rem 1rem;
+    gap: 1.2rem;
+}
+
+/*====================Gabriel R Rivera Goemz===================================*/
+.user-info {
+    width: 15rem;
+    background: #018065;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 50%)scale(0.1);
+    text-align: center;
+    padding: 1rem 1rem 1rem 1rem;
+    visibility: hidden;
+
+}
+
+.user-edit {
+    width: 15rem;
+    background: #018065;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 50%)scale(0.1);
+    text-align: center;
+    padding: 1rem 1rem 1rem 1rem;
+    visibility: hidden;
+
+}
+
+.open-pop {
+    visibility: visible;
+    top: 10%;
+    transform: translate(-50%, 50%)scale(2);
+}
+
+.user-info input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 2rem;
+    font-size: 1rem;
+    color: #000000;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    margin: 0.2rem;
+    border: 0.1rem solid #000000;
+}
+
+.user-edit input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 2rem;
+    font-size: 1rem;
+    color: #000000;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    margin: 0.2rem;
+    border: 0.1rem solid #000000;
+}
+
+.user-sel {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 2rem;
+    font-size: 1rem;
+    color: #000000;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    margin: 0.2rem;
+    border: 0.1rem solid #000000;
+}
+
+.btnModal {
+    align-self: flex-end;
+    width: 10rem;
+    height: 3rem;
+    background: #018065;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btnModal:hover {
+    background-color: #00a17e;
+}
+
+.btnSave {
+    width: 45%;
+    height: 2rem;
+    background: #15ff00;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 17px;
+    color: #000000;
+    font-weight: 600;
+    border: 0.1rem solid #000000;
+    margin: 0.2rem;
+}
+
+.btnCancel {
+    width: 45%;
+    height: 2rem;
+    background: #b10000;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 17px;
+    color: #000000;
+    font-weight: 600;
+    border: 0.1rem solid #000000;
+    margin: 0.2rem;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+
+#table-users {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-collapse: collapse;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, .1);
+}
+
+#table-users td {
+    font-size: 1.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+#table-users th {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: left;
+    background: #018065;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+#table-users tr {
+    background-color: #fff;
+}
+
+#table-users tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+#table-users tr:hover {
+    background-color: #ddd;
+}
+
+#edit {
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    text-align: left;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination button {
+    background: #018065;
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin: 1rem 0.1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #00a17e;
+}
+
+.pagination button.active {
+    background-color: #00a17e;
+}
+
+/*=============================================================================*/
+@media screen and (max-width: 768px) {
+    .app-header {
+        height: 3.2rem;
+    }
+
+    .page-main-content {
+        width: 95%;
+    }
+
+    /*====================Gabriel R Rivera Goemz===================================*/
+    .user-info {
+        width: 10rem;
+        background: #018065;
+        border-radius: 0.4rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 50%)scale(0.1);
+        text-align: center;
+        padding: 1rem 1rem 1rem 1rem;
+        visibility: hidden;
+
+    }
+
+    .user-edit {
+        width: 10rem;
+        background: #018065;
+        border-radius: 0.4rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 50%)scale(0.1);
+        text-align: center;
+        padding: 1rem 1rem 1rem 1rem;
+        visibility: hidden;
+    
+    }
+
+    .open-pop {
+        visibility: visible;
+        top: 10%;
+        transform: translate(-50%, 50%)scale(2);
+    }
+
+    .user-info input {
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 2rem;
+        font-size: 0.5rem;
+        font-weight: 600;
+        color: #000000;
+        padding: 0.5rem 2rem 0.5rem 0.5rem;
+        margin: 0.2rem;
+        border: 0.1rem solid #000000;
+    }
+
+    .user-edit input {
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 2rem;
+        font-size: 0.5rem;
+        color: #000000;
+        padding: 0.5rem 2rem 0.5rem 0.5rem;
+        margin: 0.2rem;
+        border: 0.1rem solid #000000;
+    }
+
+    .user-sel {
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 2rem;
+        font-size: 0.5rem;
+        font-weight: 600;
+        color: #000000;
+        padding: 0.5rem 2rem 0.5rem 0.5rem;
+        margin: 0.2rem;
+        border: 0.1rem solid #000000;
+    }
+
+    .grey {
+        font-size: 1.2rem;
+    }
+
+    .btnSave {
+        width: 43%;
+        height: 2rem;
+        background: #15ff00;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #000000;
+        font-weight: 600;
+        border: 0.1rem solid #000000;
+        margin: 0.2rem;
+    }
+
+    .btnCancel {
+        width: 43%;
+        height: 2rem;
+        background: #b10000;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #000000;
+        font-weight: 600;
+        border: 0.1rem solid #000000;
+        margin: 0.2rem;
+    }
+
+    /*=============================================================================*/
+
+    #table-users th:nth-child(4),
+    #table-users td:nth-child(4),
+    #table-users th:nth-child(5),
+    #table-users td:nth-child(5) {
+        display: none;
+    }
+}

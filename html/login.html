@@ -15,9 +15,7 @@
         <h1>
           <img class="imgedit" src="../assets/inter-logo.png" alt="Inter Logo" />
         </h1>
-        <h2>
-            Username or Password incorrect
-        </h2>
+        <div id="errorMessage"></div>
         <div class="user">
           <input type="text" name="username" placeholder="Username" required />
         </div>
@@ -26,8 +24,9 @@
         </div>
         <div class="check">
         </div>
-        <button type="submit" class="btnlog">Login</button>
+        <button type="submit" name="loginBtn" class="btnlog">Login</button>
       </form>
     </div>
+    <script src="../scripts/modules/loginProcessing.js"></script>
   </body>
 </html>
