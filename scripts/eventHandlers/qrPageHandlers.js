@@ -1,10 +1,6 @@
 import { qrPageBackButton, scanButton, stopButton } from "../utils/qrPageElements.js";
 import { startScanning, stopScanning } from "../controllers/qrPageController.js";
-
-// Navigate back to the index page
-function navigateToIndexPage() {
-  window.location.href = "index.html";
-}
+import { navigateToIndexPage } from "../utils/navigationUtils.js";
 
 export const handleQRPageEvents = () => {
   // Handle navigation back to the index page
