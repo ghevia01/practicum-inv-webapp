@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 // Function to fetch data from the server
 export const fetchItemData = async (baseUrl, queryKey, queryValue) => {
   try {

@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 import { qrPageBackButton, scanButton, stopButton } from "../utils/qrPageElements.js";
 import { startScanning, stopScanning } from "../controllers/qrPageController.js";
 import { navigateToIndexPage } from "../utils/navigationUtils.js";

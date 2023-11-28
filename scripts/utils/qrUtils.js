@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 // Set the camera to use the back camera
 const FACING_MODE = "environment";
 

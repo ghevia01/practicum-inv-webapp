@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 import { handleEditClick } from "../eventHandlers/itemCardHandlers.js";
 import { createEditIcon, createCancelIcon, createSelect } from "./domUtils.js";
 import { keysToShow, locationOptions } from "../../contants/qrPageContants.js";

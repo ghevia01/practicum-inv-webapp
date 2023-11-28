@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 // Function to create button element
 export function createButton(text, className) {
   const button = document.createElement("button");

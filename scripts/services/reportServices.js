@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 export function downloadLocationReport(location) {
   // Encode the location parameter
   const queryParam = encodeURIComponent(location);
