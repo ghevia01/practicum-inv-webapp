@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 import { handleReportsPageEvents } from "../eventHandlers/reportsPageHandlers.js";
 import { downloadLocationReport } from "../services/reportServices.js";
 import { exportButton, locationsSelect } from "../utils/reportsPageElements.js";

@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 import { qrScannerPageBtn, manageInventoryPageBtn, manageUsersPageBtn, reportsPageBtn, logoutBtn } from "../utils/indexPageElements.js";
 
 export function handleIndexPageEvents() {

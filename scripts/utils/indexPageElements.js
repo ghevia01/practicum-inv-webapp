@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 // Get main page elements
 export const qrScannerPageBtn = document.getElementById('qrScannerPageButton');
 export const manageInventoryPageBtn = document.getElementById('manageInventoryPageButton');

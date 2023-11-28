@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 export const scanQRCode = (video, canvas, onQRCodeDetected) => {
   
   // Get the canvas context (used to draw and manipulate the canvas)

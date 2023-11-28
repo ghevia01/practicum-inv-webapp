@@ -1,3 +1,5 @@
+<!-- Author: Gean Hevia -->
+
 <?php
 
 // Include the database connection file

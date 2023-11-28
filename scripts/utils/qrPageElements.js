@@ -1,4 +1,4 @@
-// QR page elements
+// Author: Gean Hevia
 
 // QR scanner section elements
 export const qrPageBackButton = document.getElementById("qrBackButton");

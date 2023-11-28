@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 import { updateInventoryURL } from "../../contants/qrPageContants.js";
 import { updateItemData } from "../services/inventoryServices.js";
 import { toggleLoadingScreen } from "../modules/qrScannerUI.js";

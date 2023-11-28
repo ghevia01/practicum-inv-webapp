@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 import { reportsPageBackButton } from "../utils/reportsPageElements.js";
 import { navigateToIndexPage } from "../utils/navigationUtils.js";
 

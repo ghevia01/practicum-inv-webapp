@@ -1,3 +1,5 @@
+// Author: Gean Hevia
+
 /**
  * @module QRPageController
  * @description Coordinates between the QR Page view and model.
