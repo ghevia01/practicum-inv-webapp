@@ -1,7 +1,7 @@
 // QR page elements
 
 // QR scanner section elements
-export const qrPageBackButton = document.getElementById("backButton");
+export const qrPageBackButton = document.getElementById("qrBackButton");
 export const qrScannerIcon = document.getElementById("qrScannerIcon");
 export const video = document.getElementById("qrVideo");
 export const canvas = document.getElementById("qrCanvas");

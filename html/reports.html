@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gean Hevia" />
+    <meta name="description" content="Device Inventory System Reports" />
+
+    <!-- Favicon (will be set later on)-->
+    <link rel="icon" href="" type="image/x-icon" />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" type="text/css" href="../css/reports-styles.css" />
+
+    <title>Device Inventory System Reports</title>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header class="app-header">
+      <div id="reportsBackButton" class="back-button-container" aria-label="Go Back">
+        <i class="material-icons back-button-icon">arrow_back</i>
+      </div>
+      <div class="page-title-container">
+        <h1>Reports</h1>
+      </div>
+      <div class="menu-button-container"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-main-content">
+      <div class="reports-container">
+        <label for="locationsSelect" class="locations-select-label">
+          Select a Location to Download Report:
+        </label>
+        <div class="report-controls">
+          <select
+            id="locationsSelect"
+            class="locations-select"
+            name="locationsSelect"
+            aria-label="Locations Select"
+          >
+            <option value="E-169">E-169</option>
+            <option value="E-170">E-170</option>
+            <option value="E-249A">E-249A</option>
+            <option value="E-249B">E-249B</option>
+            <option value="E-249C">E-249C</option>
+            <option value="F-104">F-104</option>
+            <option value="F-201">F-201</option>
+            <option value="F-202">F-202</option>
+            <option value="F-203">F-203</option>
+            <option value="F-209">F-209</option>
+            <option value="F-210">F-210</option>
+            <option value="all">All Rooms</option>
+          </select>
+          <button id="exportButton" class="export-button">
+            <i class="material-icons download-button-icon"> download </i>
+          </button>
+        </div>
+        <p class="button-description">
+          Click the button to download a report of devices for the selected
+          location.
+        </p>
+      </div>
+    </main>
+
+    <!-- Loading Screen -->
+    <!-- <div id="loadingScreen" class="loading-screen hidden">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Please wait...</div>
+    </div> -->
+
+    <!-- Scripts -->
+    <script
+      type="module"
+      src="../scripts/controllers/reportsPageController.js"
+    ></script>
+  </body>
+</html>
