@@ -1,16 +1,15 @@
 <?php
 include 'db-connection.php';
 
-// Define pagination parameters
+// Page parameters
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $recordsPerPage = 10; // Adjust this according to your needs
 
-
-// Calculate the offset for the query
 $offset = ($page - 1) * $recordsPerPage;
 
 // Fetch total records
 $totalRecords = getTotalRecords();
+
 
 $sql = "SELECT * FROM users ORDER BY id ASC LIMIT :offset, :limit";
 $stmt = $dbh->prepare($sql);
@@ -22,6 +21,7 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $settingsIcon = '<span class="material-icons-outlined">settings</span>';
 
+// Echo table contents based on query
 foreach ($data as $user) {
     echo    "<tr>
                 <td>{$user['id']}</td>
@@ -37,13 +37,13 @@ foreach ($data as $user) {
 $remainingRows = $recordsPerPage - count($data);
 for ($i = 0; $i < $remainingRows; $i++) {
     echo "<tr>";
-    for ($j = 0; $j < 7; $j++) { // Assuming there are 7 columns
-        echo "<td>&nbsp;</td>"; // Use &nbsp; to ensure cells have non-zero height
+    for ($j = 0; $j < 7; $j++) { // 7 columns in users table
+        echo "<td>&nbsp;</td>";
     }
     echo "</tr>";
 }
 
-// Function to fetch total records
+// Fetch total records
 function getTotalRecords() {
     include 'db-connection.php';
 
@@ -53,7 +53,7 @@ function getTotalRecords() {
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Include totalPages in the response
+
     echo "totalPages=" . ceil($result['totalRecords'] / $GLOBALS['recordsPerPage']);
 
     return $result['totalRecords'];

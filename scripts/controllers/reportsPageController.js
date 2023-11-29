@@ -9,7 +9,7 @@ exportButton.addEventListener("click", () => {
   // Get the selected location
   const location = locationsSelect.value;
   // Download the report for the selected location
-  downloadLocationReport(selectedLocation);
+  downloadLocationReport(location);
 });
 
 // Call the function to handle the main page events

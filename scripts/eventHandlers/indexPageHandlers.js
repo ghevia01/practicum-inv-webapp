@@ -10,7 +10,7 @@ export function handleIndexPageEvents() {
   manageInventoryPageBtn.addEventListener("click", () => (window.location.href = "inventory-management.html"));
   
   // Attach function to send the user to the accounts management page
-  manageUsersPageBtn.addEventListener("click", () => (window.location.href = "account-manage.html"));
+  manageUsersPageBtn.addEventListener("click", () => (window.location.href = "account-management.html"));
   
   // Attach function to send the user to the reports page
   reportsPageBtn.addEventListener("click", () => (window.location.href = "reports.html"));
