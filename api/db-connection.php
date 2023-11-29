@@ -1,5 +1,3 @@
-<!-- Author: Gean Hevia -->
-
 <?php
 
 // Database connection (Data Source Name)

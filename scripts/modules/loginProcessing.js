@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   var errorMessageElement = document.getElementById('errorMessage');
 
-  // Function to make an AJAX request
   function getErrorMessage() {
     var xhr = new XMLHttpRequest();
 

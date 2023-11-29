@@ -18,6 +18,7 @@ if (isset($_POST["loginBtn"])) {
             if (password_verify($password, $getRow['password'])) {
                 unset($getRow['password']);
                 $_SESSION = $getRow;
+                // Successful login
                 header('location: ../html/index.html');
                 exit();
             } else {
