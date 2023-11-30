@@ -1,4 +1,3 @@
-<!-- Author: Gean Hevia -->
 
 <?php
 
